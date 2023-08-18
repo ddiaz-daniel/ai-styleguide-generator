@@ -1,0 +1,16 @@
+{% extends "layout/base.twig" %}
+
+{% block body %}
+	<header>
+		{% include "component/navigation-main.twig" %}
+		{% block header %}{% endblock %}
+	</header>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
+	<footer>
+		{% include "component/footer-main.twig" %}
+		{% block footer %}{% endblock %}
+	</footer>
+    {% block overlay %}{% endblock %}
+{% endblock %}

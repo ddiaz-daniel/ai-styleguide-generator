@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/competitors/competitors.scss">
+
+{% if kiStyleguide.competitors%}
+<div class="competitors-container pdf-content">
+    {% include "page/kistyleguide/review/prompt_button/promptButton.twig" with {section: "competitors"} %}
+
+    <div class="left-side">
+
+        {% for competitor in kiStyleguide.competitors %}
+            <h5 class="secondary-title"> {{ competitor.name }}</h5>
+            <hr class="gray-line">
+            <div class="competitor">
+                <a class="competitor-website" href="http://{{ competitor.website }}" target="_blank">{{ competitor.website }}</a>
+                <p class="competitor-communication">{{ competitor.communication }}</p>
+                <p class="competitor-engage">{{ competitor.engage }}</p>
+                <p class="competitor-description">{{ competitor.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="right-side">
+        <h3 class="section-title">Competitors</h3>
+    </div>
+</div>
+    {% include "page/kistyleguide/review/prompt_input/promptInput.twig" with {section: "competitors"} %}
+ {% endif %}
+

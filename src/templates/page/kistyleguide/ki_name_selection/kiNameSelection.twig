@@ -1,0 +1,111 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+    <div class="kiStyleguide">
+        <div class="container left-text margin-top-big margin-bottom-big editelementOverlay">
+            <script src="/templates/page/kistyleguide/ki_name_selection/kiNameSelection.js"></script>
+            <script src="/templates/page/kistyleguide/ki_style_guide/kiStyleGuide.js"></script>
+
+
+            <div class="main_container_content">
+                <form id="logoForm" method="post">
+                    {% if kiStyleguide.names %}
+                        <h2 class="margin-bottom-big">{{ i18n.kiStyleguide.selectNamePage.title }}:</h2>
+                        {% for name in kiStyleguide.names %}
+                            <input type="radio" id="{{ name }}" name="selectedName" value="{{ name }}"
+                                   style="vertical-align: baseline;">
+                            <label for="{{ name }}" style="display: inline-block;">{{ name }}</label><br>
+                        {% endfor %}
+                        <div for="customName">
+                            <input type="radio" id="customName" name="selectedName" value=""
+                                   style="vertical-align: baseline;">
+                            <input type="text" id="customNameInput" name="customNameInput"
+                                   placeholder="{{ i18n.kiStyleguide.selectNamePage.customNamePlaceholder }}"
+                                   oninput="updateCustomNameValue()">
+                        </div>
+                    {% endif %}
+                    {% if kiStyleguide.logos %}
+                        <div>
+                            <h2 class="margin-bottom-big">{{ i18n.kiStyleguide.selectLogoPage.title }}:</h2>
+                            <div id="logoButtonsContainer">
+                                {% for logo in kiStyleguide.logos %}
+                                    <label class="logoButton" data-logo="{{ logo.url }}">
+                                        <img src="{{ logo.url }}"
+                                             style="max-width: 100%; max-height: 100%; display: block;"/>
+                                    </label>
+                                {% endfor %}
+                                <input type="hidden" name="selectedLogo" id="selectedLogo">
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <input type="hidden" name="inputVariables" value="{{ inputVariables }}">
+                    <input type="hidden" name="kiStyleguide" value="{{ kiStyleguide|json_encode() }}">
+                    <div id="controls">
+                        <button id="genNamesBtn" type="submit" class="costs-money"
+                                formaction="/regenerateNames" onclick="showLoadingButtonNames(event)">{{ i18n.kiStyleguide.buttons.regenNames }}</button>
+                        <button id="genLogosBtn" type="submit" class="costs-money"
+                                formaction="/regenerateLogos" onclick="showLoadingButtonLogos(event)">{{ i18n.kiStyleguide.buttons.regenLogos }}</button>
+                        <button id="saveBtn" type="submit" class="green"
+                                formaction="/generatedStyleguideReview" onclick="showLoadingButtonSave(event)">{{ i18n.kiStyleguide.buttons.save }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {# <script> #}
+    {# function blockSaveButton() { #}
+    {# var saveBtn = document.getElementById('saveBtn'); #}
+    {# saveBtn.disabled = true; #}
+    {# saveBtn.innerHTML = "Wait..."; #}
+    {# saveBtn.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; #}
+    {# } #}
+
+    {# function unblockSaveButton() { #}
+    {# var saveBtn = document.getElementById('saveBtn'); #}
+    {# saveBtn.disabled = false; #}
+    {# saveBtn.innerHTML = "Save"; #}
+    {# saveBtn.style.backgroundColor = '#5ddf59'; #}
+    {# } #}
+
+    {# var xhr = new XMLHttpRequest(); #}
+    {# xhr.onreadystatechange = function() { #}
+    {# console.log(xhr); #}
+    {# if (xhr.readyState === 4) { #}
+    {# if (xhr.status === 200) { #}
+    {# console.log(xhr); #}
+    {# var data; #}
+    {# try { #}
+    {# data = JSON.parse(xhr.responseText); #}
+    {# console.log(data); #}
+    {# document.getElementById('kiLogosInput').value = JSON.stringify(data.data); #}
+    {# unblockSaveButton(); #}
+    {# } catch (error) { #}
+    {# console.log("Error parsing JSON response:", error); #}
+    {# unblockSaveButton(); #}
+    {# } #}
+
+    {# } else { #}
+    {# console.log("Request failed with status: " + xhr.status); #}
+    {# unblockSaveButton(); #}
+    {# } #}
+    {# } #}
+    {# }; #}
+
+    {# var payload = { #}
+    {# prompt: "{{ kiStyleguide.imagery.logo }}", #}
+    {# n: 4, #}
+    {# size: "256x256" #}
+    {# }; #}
+
+    {# blockSaveButton(); #}
+
+    {# xhr.open("POST", "/application/createLogoRequest.php", true); #}
+    {# xhr.setRequestHeader("Content-Type", "application/json"); #}
+    {# xhr.onloadend = function() { #}
+    {# unblockSaveButton(); #}
+    {# }; #}
+    {# xhr.send(JSON.stringify(payload)); #}
+    {# </script> #}
+{% endblock %}

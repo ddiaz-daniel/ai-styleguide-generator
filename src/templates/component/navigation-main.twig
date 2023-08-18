@@ -1,0 +1,66 @@
+<div id="navigation">
+	<div class="logowrapper">
+		<div class="inner">
+			{% if user is not null %}
+				<a href="/dashboard"><img src="{{ pathImage }}/logo-sg.svg" alt="Logo"></a>
+			{% else %}
+				<a href="/"><img src="{{ pathImage }}/logo-sg.svg" alt="Logo"></a>
+			{% endif %}
+		</div>
+	</div>
+	<ul class="mainmenu">
+		<li>
+			<a href="/dashboard" class="{% if ('/dashboard' | is_current_url) %} active{% endif %}">{{ i18n.dashboard.headline }}</a>
+		</li>
+		<li>
+			<a href="/features" class="{% if ('/features' | is_current_url) %} active{% endif %}">{{ i18n.features.headline }}</a>
+		</li>
+		<li>
+			<a href="/faqs" class="{% if ('/faqs' | is_current_url) %} active{% endif %}">{{ i18n.faqs.headline }}</a>
+		</li>
+		<li>
+			<a href="/pro" class="{% if ('/pro' | is_current_url) %} active{% endif %} button">{{ i18n.pro.menuline }}</a>
+		</li>
+		<li>
+			<a href="/kiGettingStarted" class="{% if ('/kiGettingStarted' | is_current_url) %} active{% endif %}">{{ i18n.kiStyleguide.headline }}</a>
+		</li>
+	</ul>
+
+	<ul class="accountmenu">
+		{% if user is not null %}
+			<li style="display: flex;">
+				<a style="margin: auto 12px;" href="/account" class="account-link">
+					{{user.email}}
+				</a>
+
+				<a href="/account" class="button-logout">
+					<i class="fal fa-user-alt"></i>
+				</a>
+			</li>
+		{% else %}
+			<li class="login">
+				<a style="margin-right: 10px;" href="/login" class="btn-primary green">Login</a>
+				<a href="/register" class="btn-primary ">Register</a>
+			</li>
+		{% endif %}
+	</ul>
+
+	<i class="fal fa-bars burger-icon"></i>
+</div>
+
+{% if message != "" %}
+	<div class="container-fluid">
+		<div class="message">
+			<span>{{ i18n.message[message]|raw }}</span>
+			<i class="fas fa-times"></i>
+		</div>
+	</div>
+{% endif %}
+{% if error != "" %}
+	<div class="container-fluid">
+		<div class="message error">
+			<span>{{ i18n.error[error]|raw }}</span>
+			<i class="fas fa-times"></i>
+		</div>
+	</div>
+{% endif %}

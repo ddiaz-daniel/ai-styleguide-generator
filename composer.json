@@ -1,0 +1,38 @@
+{
+  "name": "ai-styleguide-generator/ai-styleguide",
+  "description": "styleguide generator using AI. IM",
+  "type": "project",
+  "require": {
+    "scssphp/scssphp": "^1.11",
+    "twig/twig": "^3.7",
+    "twbs/bootstrap": "^4.1",
+    "altorouter/altorouter": "^2.0",
+    "components/jquery": "^3.6",
+    "stripe/stripe-php": "^9.4",
+    "sabberworm/php-css-parser": "^8.4",
+    "symfony/http-client": "6.0.20",
+    "symfony/http-client-contracts": "<=3.0.2",
+    "symfony/service-contracts": "<=3.0.2",
+    "symfony/browser-kit": "<=6.0.19",
+    "symfony/dom-crawler": "<=6.0.19"
+  },
+  "autoload": {
+    "psr-4": {
+      "StyleguideGenerator\\StyleguideGenerator\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Daniel Diaz",
+      "email": "zrelick@gmail.com"
+    },
+    {
+      "name": "Anna Maschek",
+      "email": "blank@email.com"
+    },
+    {
+      "name": "Stijn Driessens",
+      "email": "blank@email.com"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{% if element.image != "" %}
+    <div class="image_wrapper {% if element.has_outline != "" %}outline{% endif %} {% if element.color != "" %}padding_inner{% endif %}" style="background-color: {{ element.color }};">
+        <img src="https://ki.styleguide-generator.com/file?path={{ element.image }}">
+    </div>
+{% else %}
+    {% if element.videoId != "" %}
+        <div class="video-container">
+            <iframe class="video" src="https://www.youtube.com/embed/{{ element.videoId }}" allowfullscreen></iframe>
+        </div>
+    {% elseif element.color != "" %}
+        <div class="thumb  {% if element.has_outline != "" %}outline{% endif %}" style="background-color: {{ element.color }}; background-image: url('{{ element.image }}')"></div>
+    {% endif %}
+{% endif %}
+
+{% if element.title != "" %}
+    <div class="title">{{ element.title|raw }}</div>
+{% endif %}
+
+<div class="description">
+    <div class="inner">
+        {{ element.description|raw }}
+    </div>
+    <div class="js-show-more">{{ i18n.form.elements.showmore }}</div>
+    <div class="js-show-less">{{ i18n.form.elements.showless }}</div>
+</div>
+
+<div class="uploads">
+    {% for upload in element.uploads %}
+        <a target="_blank" download href="https://ki.styleguide-generator.com/file?path={{ upload.upload }}"><i class="far fa-arrow-down"></i> {{ upload.name }}</a>
+    {% endfor %}
+</div>

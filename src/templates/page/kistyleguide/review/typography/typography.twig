@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/typography/typography.scss">
+
+<div class="typography-container pdf-content">
+    {% include "page/kistyleguide/review/prompt_button/promptButton.twig" with {section: "typography"} %}
+
+    <div class="left-side">
+        {% for key, font in kiStyleguide.typography.fonts %}
+            <div class="typography-section">
+                <h5 class="secondary-title">Family Font</h5>
+                <hr class="gray-line">
+                <h1 class="family-name" style="font-family: {{ font.name }};">{{ font.name }}</h1>
+                <div class="weights-container">
+                    <div>
+                        <h1 class="weight-text" style="font-weight: {{ font.weight.bold }}; font-family: {{ font.name }}">Aa</h1>
+                        <p class="weight-title">Bold</p>
+                    </div>
+                    <div>
+                        <h1 class="weight-text" style="font-weight: {{ font.weight.regular }}; font-family: {{ font.name }}">Aa</h1>
+                        <p class="weight-title">Regular</p>
+                    </div>
+                    <div>
+                        <h1 class="weight-text" style="font-weight: {{ font.weight.light }}; font-family: {{ font.name }}">Aa</h1>
+                        <p class="weight-title">Light</p>
+                    </div>
+                </div>
+                <div class="typography-content" style="font-family: {{ font.name }}">
+                    <div class="typography-section-content" style="font-size: {{ font.size.h1 }}px; font-family: {{ font.name }}">{{ kiStyleguide.typography.sampleText.heading }}</div>
+                    <p class="weight-title">h1</p>
+                    <div class="typography-section-content" style="font-size: {{ font.size.h2 }}px; font-family: {{ font.name }}">{{ kiStyleguide.typography.sampleText.heading }}</div>
+                    <p class="weight-title">h2</p>
+                    <div class="typography-section-content" style="font-size: {{ font.size.h3 }}px; font-family: {{ font.name }}">{{ kiStyleguide.typography.sampleText.heading }}</div>
+                    <p class="weight-title">h3</p>
+                    <div class="typography-section-content" style="font-size: {{ font.size.p }}px; font-family: {{ font.name }}">{{ kiStyleguide.typography.sampleText.paragraph }}</div>
+                    <p class="weight-title">p</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="right-side">
+        <h2 class="section-title">Typography</h2>
+        <p class="typography-note">{{ kiStyleguide.typography.note }}</p>
+    </div>
+</div>
+{% include "page/kistyleguide/review/prompt_input/promptInput.twig" with {section: "typography"} %}

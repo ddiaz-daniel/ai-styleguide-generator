@@ -1,0 +1,27 @@
+<script src="/templates/page/kistyleguide/ki_style_guide/ins_competitors/insCompetitors.js"></script>
+
+<div class="slidesHeader">
+    <h1 class="sliderTitle">{{ i18n.kiStyleguide.tabs.competitors }}</h1>
+    <span class="sliderSubtitle">{{ i18n.kiStyleguide.competitors.explanation }}</span>
+</div>
+<label for="reasoningDifferent">
+    <span>{{ i18n.kiStyleguide.competitors.reasoningDifferent }}</span>
+    <input type="text" name="reasoningDifferent" id="reasoningDifferent" placeholder="{{ i18n.kiStyleguide.competitors.reasoningDifferentPlaceholder }}">
+</label>
+
+<div>
+    <fieldset id="competitors" class="elements">
+        <legend>{{ i18n.kiStyleguide.competitors.competitorsURL }}</legend>
+        <!-- Competitors are inserted here -->
+    </fieldset>
+    <button id="addCompetitorBtn" class="secondaryButton" onclick="addCompetitorInputField()"
+            type="button">{{ i18n.kiStyleguide.competitors.addCompetitorBtn }} <i class="fal fa-plus"></i></button>
+</div>
+
+<label for="competitorsSimilarity">{{ i18n.kiStyleguide.competitors.similarityRange }}</label>
+
+<div for="competitorsSimilarity" class="sliderContainer">
+    <input type="range" name="competitorsSimilarity" min="0" max="100" value="50" class="slider"
+           id="competitorsSimilaritySlider">
+    <span id="competitorsSimilarityValue" class="rangeValue">50% similar to competitors</span>
+</div>

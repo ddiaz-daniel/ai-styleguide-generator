@@ -1,0 +1,60 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+    <div class="workArea left-text kiGettingStarted">
+        <div class="welcome-card">
+            <div id="text-container">
+                <div class="slider first active">
+                    <h2 id="welcome-slide">{{ i18n.kiStyleguide.intro.welcomeText }}</h2>
+                    <p class="paragraph">Holaaa</p>
+                    <div id="controls">
+                        <button id="start-button" onclick="startFading()">{{ i18n.kiStyleguide.buttons.start }}</button>
+                    </div>
+                </div>
+
+                <div class="slider">
+                    <p class="paragraph">{{ i18n.kiStyleguide.intro.slide1 }}</p>
+                    <p class="paragraph">{{ i18n.kiStyleguide.intro.slide2 }}</p>
+                    <p class="paragraph bold">{{ i18n.kiStyleguide.intro.slide3 }}</p>
+                    <button id="visit-button" onclick="window.location.href='/kiStyleguide'">{{ i18n.kiStyleguide.buttons.getStarted }}</button>
+                </div>
+            </div>
+            <a id="skip" href="/kiStyleguide">Skip</a>
+        </div>
+    </div>
+
+    <script>
+        const sliders = Array.from(document.getElementsByClassName('slider'));
+        let currentSliderIndex = 0;
+        let fadingStarted = false;
+        let fadeTimeout;
+
+        function fadeToNextSlider() {
+            if (currentSliderIndex + 1 == sliders.length) {
+                return;
+            }
+
+            const currentSlider = sliders[currentSliderIndex];
+            currentSlider.style.animation = 'fadeout 2s forwards'; // Apply fadeout animation to the current slider
+
+            setTimeout(() => {
+                currentSlider.style.display = 'none'; // Hide the current slider after fadeout animation is complete
+                currentSlider.style.animation = ''; // Reset animation property
+
+                currentSliderIndex = (currentSliderIndex + 1) % sliders.length;
+                const nextSlider = sliders[currentSliderIndex];
+                nextSlider.style.display = 'block'; // Show the next slider
+                nextSlider.style.animation = 'fadein 2s forwards'; // Apply fadein animation to the next slider
+
+                fadeTimeout = setTimeout(fadeToNextSlider, 1000); // Delay for 5 seconds before fading out the next slide
+            }, 2000); // Adjust the duration of fadeout animation as per your preference
+        }
+
+        function startFading() {
+            if (!fadingStarted) {
+                fadingStarted = true;
+                fadeToNextSlider();
+            }
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/logo/logo.scss">
+
+<div class="review-logo-container pdf-content">
+    {% include "page/kistyleguide/review/prompt_button/promptButton.twig" with {section: "logo"} %}
+
+    <div class="title-side">
+        <h2 class="section-title">Logo</h2>
+    </div>
+    <div>
+        <div class="top-content-side">
+            <div class="logo-side" style="background-color: {{ kiStyleguide.colors.primaryPalette[2].hex }}">
+                <img src="{{ selectedLogo ? selectedLogo : (kiStyleguide.logos[0] ? kiStyleguide.logos[0] : '/application/assets/images/preview_image.svg') }}" alt="Logo">
+            </div>
+            <div class="name-side" style="background-color: {{ kiStyleguide.colors.primaryPalette[2].hex }}">
+                <div class="name-container">
+                    <h1 class="name white" style="color: {{ kiStyleguide.colors.primaryPalette[0].hex }}">
+                        {{ selectedName }}
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-content-side">
+            <div class="name-side" style="background-color: {{ kiStyleguide.colors.primaryPalette[0].hex }}">
+                <div class="name-container">
+                    <h1 class="name white" style="color: {{ kiStyleguide.colors.primaryPalette[1].hex }}">
+                        {{ selectedName }}
+                    </h1>
+                </div>
+            </div>
+            <div class="logo-side" style="background-color: {{ kiStyleguide.colors.primaryPalette[0].hex }}">
+                <img src="{{ selectedLogo ? selectedLogo : (kiStyleguide.logos[1] ? kiStyleguide.logos[1] : '/application/assets/images/preview_image.svg') }}" alt="Logo">
+            </div>
+        </div>
+        <div class="top-content-side">
+            <div class="logo-side" style="background-color: {{ kiStyleguide.colors.secondaryPalette[1].hex }}">
+                <img src="{{ selectedLogo ? selectedLogo : (kiStyleguide.logos[2] ? kiStyleguide.logos[2] : '/application/assets/images/preview_image.svg') }}" alt="Logo">
+            </div>
+            <div class="name-side" style="background-color: {{ kiStyleguide.colors.secondaryPalette[1].hex }}">
+                <div class="name-container">
+                    <h1 class="name white" style="color: {{ kiStyleguide.colors.secondaryPalette[0].hex }}">
+                        {{ selectedName }}
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "page/kistyleguide/review/prompt_input/promptInput.twig" with {section: "logo"} %}
+

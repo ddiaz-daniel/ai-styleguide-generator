@@ -1,0 +1,24 @@
+<div class="review-name-container pdf-content">
+    {% include "page/kistyleguide/review/prompt_button/promptButton.twig" with {section: "identity"} %}
+
+    <div class="left-side header">
+        <h1 class="headline-primary name" style="color: {{ kiStyleguide.colors.primaryPalette[0].hex }}">
+            {{ selectedName ? selectedName : kiStyleguide.names|join(' | ') }}
+        </h1>
+    </div>
+    <div class="right-side header" style="background-color: {{ kiStyleguide.colors.primaryPalette[0].hex }}">
+        <div class="slogan-container">
+            <h2 class="slogan white">
+                {{ kiStyleguide.slogan }}
+            </h2>
+            <h3 class="creation-date">Creation Date</h3>
+        </div>
+    </div>
+</div>
+{% include "page/kistyleguide/review/prompt_input/promptInput.twig" with {section: "identity"} %}
+
+<script>
+    var currentDate = new Date().toLocaleDateString('en-GB');
+    var creationDateElement = document.querySelector('.creation-date');
+    creationDateElement.textContent = currentDate;
+</script>

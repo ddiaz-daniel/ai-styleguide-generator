@@ -1,0 +1,23 @@
+{% if element.image != "" %}
+    <div class="image_wrapper {% if element.has_outline != "" %}outline{% endif %} {% if element.color != "" %}padding_inner{% endif %}" style="background-color: {{ element.color }};">
+        <img src="https://ki.styleguide-generator.com/file?path={{ element.image }}">
+    </div>
+{% else %}
+    {% if element.videoId != "" %}
+        <div class="video-container">
+            <iframe class="video" src="https://www.youtube.com/embed/{{ element.videoId }}" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+{% endif %}
+
+{% if key == "colors" and key2 != 'note' %}
+    <div class="thumb" style="background-color: {{ elem }};"></div>
+{% endif %}
+
+<div class="description">
+    <div class="inner">
+        {{ elem|raw }}
+    </div>
+    <div class="js-show-more">{{ i18n.form.elements.showmore }}</div>
+    <div class="js-show-less">{{ i18n.form.elements.showless }}</div>
+</div>

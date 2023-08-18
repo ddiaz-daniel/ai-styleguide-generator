@@ -1,0 +1,28 @@
+.review-mockup-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  margin: 24px 0;
+
+  .title-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .top-content-side {
+    width: fit-content;
+    display: flex;
+    grid-template-columns: 1fr 2fr;
+    margin: 24px;
+    box-shadow: 0 5px 10px 2px rgba(200, 200, 200, 0.2);
+
+  }
+
+  .mockup-img {
+    height: auto;
+    width: auto;
+    max-height: 600px;
+  }
+}

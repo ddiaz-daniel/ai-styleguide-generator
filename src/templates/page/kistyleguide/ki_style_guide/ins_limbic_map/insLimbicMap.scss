@@ -1,0 +1,83 @@
+.limbicMap {
+  #image-map {
+    vertical-align: middle;
+    margin: 0;
+    overflow: hidden;
+    padding: 0px 16px;
+  }
+
+  #image-map svg {
+    display: inline-block;
+
+    width: calc(75vw - 16px); // width is adaptable, selectable area still works :)
+  }
+
+  a {
+    text-decoration: none;
+
+    &.selected text {
+      text-decoration: underline;
+    }
+  }
+
+  input,
+  label {
+    display: none;
+  }
+
+  svg {
+    text {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .yellowFill {
+      fill: #F9DD1B;
+    }
+
+    .blueFill {
+      fill: #417CE3;
+    }
+
+    .fillTurquoise {
+      fill: #0BD5CC;
+    }
+
+    .fillWhite {
+      fill: #FFFFFF;
+    }
+
+    .fillRed {
+      fill: #FF454D;
+    }
+
+    .bigFont {
+      font-size: 38px;
+    }
+
+    .fillDarkYellow {
+      fill: #F7B31C;
+    }
+
+    .fillDarkTurquoise {
+      fill: #0DD387;
+    }
+
+    .noFill {
+      fill: none;
+    }
+
+    .mediumFont {
+      font-size: 30px;
+    }
+  }
+}
+
+#travelButton svg {
+  padding: 15px;
+  stroke-width: 20px;
+}
+
+#petsButton svg {
+  padding: 10px;
+}

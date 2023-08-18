@@ -1,0 +1,26 @@
+<script src="/templates/page/kistyleguide/ki_style_guide/ins_ai_creativity_lvl/insAICreativityLvl.js"></script>
+
+<div class="slidesHeader">
+    <h1 class="sliderTitle">{{ i18n.kiStyleguide.finalise.title }}</h1>
+    <span class="sliderSubtitle">{{ i18n.kiStyleguide.finalise.explanation }}</span>
+</div>
+<label for="aiCreativityLvl">{{ i18n.kiStyleguide.finalise.aiCreativityLvl }}</label>
+<div for="aiCreativityLvl" class="sliderContainer">
+    <input type="range" name="aiCreativityLvl" min="0" max="100" value="50" class="slider" id="aiCreativityRangeSlider">
+    <span id="aiCreativityRangeValue" class="rangeValue">50%</span>
+</div>
+
+<label for="useIntegratedAIs" style="margin-left: 6px">
+    <input type="checkbox" name="useIntegratedAIs" id="useIntegratedAIs" class="bigger-checkbox">
+    <span class="costs-money">{{ i18n.kiStyleguide.finalise.useIntegratedAIs }}</span>
+</label>
+<label for="genLogos" style="margin-left: 6px">
+    <input type="checkbox" name="genLogos" id="genLogos" class="bigger-checkbox">
+    <span class="costs-money">{{ i18n.kiStyleguide.finalise.genLogos }}</span>
+</label>
+
+<label for="extraInfo">
+    <span>{{ i18n.kiStyleguide.finalise.extraInfo }}</span>
+    <textarea name="extraInfo" id="extraInfo" placeholder="{{ i18n.kiStyleguide.finalise.extraInfoPlaceholder }}"
+              rows="7"></textarea>
+</label>

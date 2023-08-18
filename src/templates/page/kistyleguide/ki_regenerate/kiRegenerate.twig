@@ -1,0 +1,85 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+    <div class="kiStyleguide">
+        <div class="container left-text margin-top-big margin-bottom-big editelementOverlay">
+            <script src="/templates/page/kistyleguide/ki_style_guide/kiStyleGuide.js"></script>
+            <h1 class="margin-bottom-big">The generated prompt for ChatGPT
+                <button class="btn-primary" onclick="copyContent()" onmouseenter="highlightCopyText()"
+                        onmouseleave="unhighlightCopyText()">Copy
+                </button>
+            </h1>
+
+            <div class="main_container_content" id="systemDescription">
+                {{ instructionsTemplate }}
+            </div>
+            <br>
+            <div class="main_container_content" id="prompt">
+                {{ prompt }}
+            </div>
+            <br>
+            <h2>Please enter the response you got:</h2>
+            <form id="logoForm" method="post" action="/generatedStyleguideReview" onsubmit="return validateInput()">
+                <!--<input type="hidden" name="kiLogos" id="kiLogosInput" value="">-->
+                <input type="hidden" name="inputVariables" value="{{ inputVariables }}">
+                <input type="hidden" name="mockupImgPath" value="{{ mockupImgPath }}">
+                <input type="hidden" name="selectedName" value="{{ selectedName }}">
+                <input type="hidden" name="selectedLogo" value="{{ selectedLogo }}">
+                <textarea name="kiStyleguide" rows="10" cols="70"></textarea>
+                <div id="controls">
+                    <button id="saveBtn" type="submit" class="green">{{ i18n.kiStyleguide.buttons.save }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let systemDescription = document.getElementById('systemDescription').innerHTML;
+        let prompt = document.getElementById('prompt').innerHTML;
+
+        const validateInput = () => {
+            let inputText = document.getElementsByName('kiStyleguide')[0].value;
+
+            try {
+                JSON.parse(inputText);
+                return true; // Input is valid JSON format
+            } catch (error) {
+                console.log('Invalid JSON format:', error);
+                const fixedInput = fixMultilineStrings(inputText);
+                document.getElementsByName('kiStyleguide')[0].value = fixedInput;
+                return true; // Proceed with fixed input
+            }
+        }
+
+        function fixMultilineStrings(input) {
+            let fixedInput = input;
+
+            // Fix multiline strings by removing line breaks and unnecessary spaces
+            fixedInput = fixedInput.replace(/"([\s\S]*?)"/g, (match, p1) => {
+                const singleLineString = p1.replace(/\n/g, "").replace(/\s+/g, " ");
+                return `"${singleLineString}"`;
+            });
+
+            return fixedInput;
+        }
+
+        const copyContent = async () => {
+            try {
+                await navigator.clipboard.writeText(systemDescription + '\n' + prompt);
+                console.log('Content copied to clipboard');
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
+        }
+
+        const highlightCopyText = () => {
+            document.getElementById('systemDescription').style.backgroundColor = "#f0ebeb";
+            document.getElementById('prompt').style.backgroundColor = "#f0ebeb";
+        }
+
+        const unhighlightCopyText = () => {
+            document.getElementById('systemDescription').style.backgroundColor = 'transparent';
+            document.getElementById('prompt').style.backgroundColor = "transparent";
+        }
+    </script>
+{% endblock %}

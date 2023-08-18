@@ -1,0 +1,97 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" href="./templates/page/kistyleguide/review/review.scss">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="/templates/page/kistyleguide/review/saveToPdf.js"></script>
+    <script src="/templates/page/kistyleguide/review/prompt_input/promptInput.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family={{ kiStyleguide.typography.fonts.primary.name|replace({' ': '+'}) }}&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family={{ kiStyleguide.typography.fonts.secondary.name|replace({' ': '+'}) }}&display=swap');
+
+        .review-page,
+        .review-page * {
+            font-family: "{{ kiStyleguide.typography.fonts.primary.name }}";
+        }
+        h1 {
+            font-size: "{{ kiStyleguide.typography.fonts.primary.size.h1 }}px";
+        }
+        h2 {
+            font-size: "{{ kiStyleguide.typography.fonts.primary.size.h2 }}px";
+        }
+        h3 {
+            font-size: "{{ kiStyleguide.typography.fonts.primary.size.h3 }}px";
+        }
+        p {
+            font-size: "{{ kiStyleguide.typography.fonts.primary.size.p }}px";
+        }
+
+    </style>
+
+    <div class="review-page">
+        <div class="container margin-bottom-big review-container" style="padding: 0 0 24px 0;border-radius: 10px;">
+            {% include "page/kistyleguide/review/identity/identity.twig" %}
+            {% include "page/kistyleguide/review/color/color.twig" %}
+            {% include "page/kistyleguide/review/typography/typography.twig" %}
+            {% include "page/kistyleguide/review/logo/logo.twig" %}
+            {% include "page/kistyleguide/review/brand_position/brandPosition.twig" %}
+            {% include "page/kistyleguide/review/communication/communication.twig" %}
+            {% include "page/kistyleguide/review/competitors/competitors.twig" %}
+            {% include "page/kistyleguide/review/mockup_images/mockupImages.twig" %}
+
+            <div class="main_container_content">
+                <form id="regenerateForm" method="post">
+                    <input type="hidden" name="kiStyleguide" value="{{ kiStyleguide|json_encode() }}">
+                    <input type="hidden" name="reviewInputValues" value="{{ reviewInputValues }}">
+                    <input type="hidden" name="inputVariables" value="{{ inputVariables }}">
+                    <input type="hidden" name="mockupImgPath" value="{{ mockupImgPath }}">
+                    <input type="hidden" name="selectedName" value="{{ selectedName }}">
+                    <input type="hidden" name="selectedLogo" value="{{ selectedLogo }}">
+                    <div id="controls">
+                        <button id="regenerateBtn" type="submit" formaction="/kiRegenerateStyleguide" onclick="showLoadingButton(event)">{{ i18n.kiStyleguide.buttons.regenerate }}</button>
+                        <button id="savePdfButton" type="button" onclick="saveToPdf()">{{ i18n.kiStyleguide.buttons.saveAsPDF }}</button>
+                        <button id="saveBtn" type="submit" formaction="/styleguide/createFromKi" class="green" disabled style="display: none">{{ i18n.kiStyleguide.buttons.saveAsIs }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // REQUIRED TO DYNAMICALLY RESIZE TEXTAREAS
+        const promptTextareas = document.querySelectorAll('textarea');
+
+        // Add event listeners to each textarea
+        promptTextareas.forEach(textarea => {
+            textarea.addEventListener('input', () => {
+                textarea.style.height = 'auto';
+                textarea.style.height = `${textarea.scrollHeight}px`;
+            });
+        });
+
+        document.getElementById("regenerateBtn").addEventListener("click", function(event) {
+            event.preventDefault();
+            var reviewInputValues = JSON.parse(localStorage.getItem("reviewInputValues"));
+            document.querySelector('input[name="reviewInputValues"]').value = JSON.stringify(reviewInputValues);
+            document.getElementById("regenerateForm").action = "/kiRegenerateStyleguide";
+            document.getElementById("regenerateForm").submit();
+        });
+
+        function showLoadingButton(e){
+            e = e || window.event;
+            e.preventDefault();
+            var elem = document.getElementById("regenerateBtn");
+            elem.innerText = "Generating...";
+            elem.disabled = true;
+            disableAllButtons();
+            document.getElementById("regenerateForm").action = "/kiRegenerateStyleguide";
+            document.getElementById("regenerateForm").submit();
+        }
+
+        function disableAllButtons(){
+            var pdfB = document.getElementById("savePdfButton");
+            pdfB.disabled = true;
+        }
+    </script>
+{% endblock %}
