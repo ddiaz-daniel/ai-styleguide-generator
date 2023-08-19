@@ -1,0 +1,71 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+    <div class="kiStyleguide">
+        <div class="container left-text workArea editelementOverlay">
+            <script src="/templates/page/kistyleguide/ki_style_guide/kiStyleGuide.js"></script>
+            <script src="/templates/page/kistyleguide/ki_style_guide/kiStyleGuideSlideshow.js"></script>
+
+            <!--h1>{{ i18n.kiStyleguide.headline }}</h1-->
+            <div id="progress-bar">
+                <div class="loading-bar">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="moving-bar"></div>
+                </div>
+                <div id="segments" class="segments">
+                    <span class="segment active">{{ i18n.kiStyleguide.tabs.industry }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.companyInfo }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.limbicMap }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.competitors }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.colors }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.targetGroups }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.inspirationalImages }}</span>
+                    <span class="segment">{{ i18n.kiStyleguide.tabs.finalise }}</span>
+
+                </div>
+            </div>
+
+            <form id="slideshow" method="post" action="kiGenerateStyleguide" enctype="multipart/form-data">
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_branch/insBranch.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_company_info/insCompanyInfo.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_limbic_map/insLimbicMap.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_competitors/insCompetitors.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_colors/insColors.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_target_groups/insTargetGroups.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_inspirational_images/insInspirationalImgages.twig' %}
+                </div>
+                <div class="slide">
+                    {% include 'page/kistyleguide/ki_style_guide/ins_ai_creativity_lvl/insAICreativityLvl.twig' %}
+                </div>
+
+                <div id="controls">
+                    <button id="prevBtn" type="button">{{ i18n.kiStyleguide.buttons.prev }}</button>
+                    <button id="nextBtn" type="button">{{ i18n.kiStyleguide.buttons.next }}</button>
+                    <button id="saveBtn" type="submit" class="green" onclick="showLoadingButton(event)">{{ i18n.kiStyleguide.buttons.save }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

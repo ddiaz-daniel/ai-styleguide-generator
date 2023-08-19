@@ -1,0 +1,67 @@
+.loading-bar {
+  position: relative;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 4rem;
+}
+
+.moving-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: $lightBlue;
+  transition: width 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.dots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 2px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.dot.active,
+.dot:hover {
+  background-color: $lightBlue;
+  cursor: pointer;
+}
+
+.segments {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.segment {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9rem;
+  padding: 8px 0px;
+  text-align: center;
+
+  &.active {
+    color: $col-primary;
+    font-weight: normal;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

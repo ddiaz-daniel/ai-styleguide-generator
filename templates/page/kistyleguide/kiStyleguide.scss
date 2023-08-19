@@ -1,0 +1,389 @@
+$lightBlue: #37a2ff;
+$darkGray: #7d7d7d;
+
+.kiStyleguide {
+  .workArea {
+    max-width: none;
+    margin: 0;
+    padding: 1rem 12vw;
+    border: 0;
+    min-height: calc(100vh - 160px);
+    background-color: #f5f5f5;
+  }
+
+  .slidesHeader {
+    margin: 0 0 30px 0;
+  }
+
+  .sliderTitle {
+    margin: 10px 0;
+  }
+
+  .sliderSubtitle {
+    font-size: 1.25rem;
+    color: $darkGray;
+  }
+
+  .inputWarning{
+    visibility: hidden;
+    color: red;
+
+    i{
+      padding-top: 4px;
+      padding-right: 6px;
+    }
+  }
+
+  span {
+    padding: 0 5px;
+    transition: color 0.2s;
+  }
+
+  #industryButtonsContainer,
+  #genderButtonsContainer,
+  #logoButtonsContainer,
+  #logoInputButtonsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .industryButton,
+  .genderButton,
+  .logoButton,
+  .logoInputButton {
+    height: 140px;
+    width: 100%; //150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: $darkGray;
+    border-radius: 15px;
+    transition: border 0.2s;
+  }
+
+  .industryButton.active,
+  .industryButton:hover,
+  .genderButton.active,
+  .genderButton:hover,
+  .logoButton.active,
+  .logoButton:hover,
+  .logoInputButton.active,
+  .logoInputButton:hover {
+    color: $lightBlue;
+    border: $lightBlue solid 4px;
+
+    svg {
+      stroke: $lightBlue;
+
+      path,
+      circle,
+      rect,
+      polygon,
+      polyline {
+        stroke: $lightBlue;
+        fill: $lightBlue;
+      }
+
+      &:last-child {
+
+        path,
+        circle,
+        rect,
+        polygon,
+        polyline {
+          stroke: $lightBlue;
+        }
+      }
+    }
+  }
+
+  .industryButton svg,
+  .genderButton svg,
+  .logoButton svg,
+  .logoInputButton svg {
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    transition: fill 0.2s;
+
+    path,
+    cricle,
+    rect,
+    polygon,
+    polyline {
+      stroke: $darkGray;
+
+    }
+
+    path,
+    cricle,
+    rect,
+    polygon,
+    polyline:last-child {
+      stroke: $darkGray;
+      fill: $darkGray;
+
+    }
+  }
+
+  #controls {
+    //The height is hardcoded.
+    // Its the exact height that is needed for the buttons to render in, because the buttons are floating.
+    height: 45px;
+    width: 100%;
+
+    #prevBtn {
+      float: left;
+    }
+
+    #nextBtn,
+    #saveBtn {
+      float: right;
+    }
+
+    button.hide {
+      display: none;
+    }
+  }
+
+  .secondaryButton {
+    display: inline-block;
+    margin: 0px 7px 6px 0;
+    font-size: 14px;
+    color: #53a3ff;
+    text-decoration: underline;
+    border: 1px solid #53a3ff;
+    padding: 4px 12px 4px 31px;
+    border-radius: 28px;
+    position: relative;
+    text-decoration: none;
+    background: transparent;
+
+    i {
+      position: absolute;
+      left: 10px;
+    }
+
+    &:hover {
+      color: white;
+      background: #53a3ff;
+    }
+  }
+
+  .slide {
+    margin-bottom: 2rem;
+  }
+
+  .required-input {
+    border-color: red;
+    background: rgba(255, 0, 0, 0.13);
+  }
+
+  .margin-bottom-big {
+    margin-bottom: 40px;
+  }
+
+  .headline-bigger {
+    font-size: 2.3rem;
+  }
+
+  .sub-elements {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .element {
+    /*Overwrite*/
+    margin-bottom: 20px !important;
+  }
+
+  .remove-button {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    padding: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .sliderContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+
+    .rangeValue {
+      position: absolute;
+      top: -45px;//calc(50% - 28px);
+      left: 50%;
+      transform: translateX(-50%); //translate(-50%, -50%);
+      display: inline-block;
+      background-color: $lightBlue;
+      padding: 5px 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      white-space: nowrap;
+      width: fit-content;
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 28px;
+      border-radius: 28px;
+    }
+
+    //BUG:: THE RANGE_VALUE DOES NOT CENTER CORRECTLY AND THEREFORE THIS ALSO NOT
+    //.rangeValue:after {
+    //  position: absolute;
+    //  content: '';
+    //  left: 50%;
+    //  border-radius: 16px;
+    //  top: 30px;
+    //  border-left: 14px solid transparent;
+    //  border-right: 14px solid transparent;
+    //  border-top-width: 16px;
+    //  border-top-style: solid;
+    //  border-top-color: red;
+    //}
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 5px;
+      border-radius: 3px; //14px
+      background-color: #CCC;
+    }
+
+    .slider::-ms-thumb {
+      pointer-events: all;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 0 none;
+      background-color: #fff;
+      -webkit-appearance: none;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .slider::-moz-range-thumb {
+      pointer-events: all;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 0 none;
+      background-color: #fff;
+      -webkit-appearance: none;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .slider::-webkit-slider-thumb {
+      pointer-events: all;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 0 none;
+      background-color: #fff;
+      -webkit-appearance: none;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .costs-money {
+    background-color: $col-pro;
+    color: white;
+  }
+
+  .bigger-checkbox {
+    transform: scale(2);
+  }
+}
+
+.collage {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  grid-template-columns: auto auto auto;
+
+  .ParallelImages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+  }
+
+  .imageContainer {
+    position: relative;
+    cursor: pointer;
+    flex: 1 1 calc(50% - 30px);
+    max-width: 30vw;
+    max-height: 100%;
+    border: rgba(255, 255, 255, 0) solid 4px;
+    transition: border 0.2s;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &:hover {
+      border: $lightBlue solid 4px;
+    }
+
+  }
+
+  .active {
+    border: $lightBlue solid 4px;
+  }
+}
+
+.elements {
+  .element {
+    &.fourth {
+      flex: 0 0 25%;
+      max-width: 25%;
+
+      @media (max-width: 767px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    &.fifth {
+      flex: 0 0 20%;
+      max-width: 20%;
+
+      @media (max-width: 850px) {
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+
+      @media (max-width: 767px) {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+      }
+
+      @media (max-width: 500px) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+
+      @media (max-width: 350px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

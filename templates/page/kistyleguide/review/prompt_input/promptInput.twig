@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/prompt_input/promptInput.scss">
+
+<div class="prompt-container" id="prompt-input-container-{{ section }}">
+    <p>What do you want to modify in the {{ section }} section?</p>
+    <textarea  type="text" id="prompt-input-{{ section }}" placeholder="Enter your comment"></textarea>
+    <div class="button-container">
+        <button id="cancelBtn-{{ section }}" onclick="handleCancel('{{ section }}')">Cancel</button>
+        <button class="green" sid="submitBtn-{{ section }}" onclick="handleSubmit('{{ section }}')">Submit</button>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.competitors-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  background-color: white;
+  color: #333;
+  padding: 24px;
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .left-side {
+    padding: 24px;
+
+    .section-title {
+      color: #333;
+      text-align: right;
+    }
+
+    .competitor {
+      padding: 24px;
+      margin-bottom: 48px;
+      text-align: left;
+
+      .competitor-name {
+        color: #333;
+        font-weight: bold;
+      }
+
+      .competitor-website {
+        color: #666;
+      }
+
+      .competitor-communication,
+      .competitor-engage,
+      .competitor-description {
+        margin-top: 10px;
+      }
+    }
+  }
+}

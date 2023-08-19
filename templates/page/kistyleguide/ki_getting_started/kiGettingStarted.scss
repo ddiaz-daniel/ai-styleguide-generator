@@ -1,0 +1,134 @@
+.kiGettingStarted {
+  .workArea {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .welcome-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: calc(100vh - 160px);
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #skip {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+  }
+
+  #text-container {
+    text-align: center;
+    position: relative;
+  }
+
+  .slider {
+    position: relative;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 3s ease;
+    display: none;
+    flex-direction: column;
+    padding: 0 200px;
+  }
+
+  #visit-button {
+    background-color: #53cb4f;
+  }
+
+  .first {
+    -webkit-animation: fadein 2s linear forwards;
+    animation: fadein 2s linear forwards;
+  }
+
+  @media (max-width: 390px) {
+    .slider {
+      padding: 0 20px;
+    }
+  }
+
+  @-webkit-keyframes fadeinout {
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeinout {
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  .slider.active {
+    opacity: 1;
+    display: flex;
+  }
+
+  h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .paragraph {
+    color: #555;
+    font-size: 1.2em;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &.bold {
+      font-weight: bold;
+    }
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

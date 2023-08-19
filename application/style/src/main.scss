@@ -1,0 +1,94 @@
+$col-primary: #37a2ff;
+$col-primary-dark: #005095;
+$col-secondary: #5ddf59;
+$col-pro: #6b0bfd;
+$col-basic: #37a2ff;
+$col-button: #37a2ff;
+$col-text: #000000;
+$col-text-1: #202020;
+$col-light: #e3e3e3;
+$col-grey: #BBBBBB;
+
+$form-bg-color: #f9f9f9;
+$form-border-color: #e2e2e2;
+$form-border-radius: 3px;
+
+$border-divider: 1px solid rgba($col-light, 0.41);
+$box-shadow: 0 0 12px rgba(0, 0, 0, 0.18);
+
+$font-default: "ProximaNova-sg", Arial, sans-serif;
+
+html,
+body {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-family: $font-default;
+    font-weight: 300;
+    font-size: 16px; // base font size - use rem from here on
+    color: $col-text;
+}
+
+body {
+    * {
+        // reset
+        border-radius: 0;
+        vertical-align: top;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        &:not(input[type="checkbox"]):not(input[type="radio"]) {
+            appearance: none;
+            -webkit-appearance: none;
+        }
+    }
+
+    .footer {
+        height: 50px;
+        padding: 0 3rem;
+        margin: 1rem 0;
+    }
+
+    .logo {
+        height: 100px;
+        width: auto;
+        padding: 0.5rem 3rem
+    }
+
+    .row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        flex-direction: row;
+    }
+
+    .col {
+        padding: 0 15px;
+        flex: 1 0 0;
+    }
+
+    @import "../../../templates/page/kistyleguide/kiStyleguide";
+    @import "./src/_form";
+
+    //TODO : Why can those kistyleguide not be loaded in in the respective twig files themselves???
+    @import "../../../templates/page/kistyleguide/ki_style_guide/ins_branch/insBranch";
+    @import "../../../templates/page/kistyleguide/ki_style_guide/ins_company_info/insCompanyInfo";
+    @import "../../../templates/page/kistyleguide/ki_style_guide/ins_limbic_map/insLimbicMap";
+    @import "../../../templates/page/kistyleguide/ki_style_guide/ins_target_groups/insTargetGroups";
+    @import "../../../templates/page/kistyleguide/ki_style_guide/kiStyleguide";
+    @import "../../../templates/page/kistyleguide/ki_getting_started/kiGettingStarted";
+
+    @import "../../../templates/page/kistyleguide/review/review";
+    @import "../../../templates/page/kistyleguide/review/brand_position/brandPosition";
+    @import "../../../templates/page/kistyleguide/review/color/color";
+    @import "../../../templates/page/kistyleguide/review/communication/communication";
+    @import "../../../templates/page/kistyleguide/review/competitors/competitors";
+    @import "../../../templates/page/kistyleguide/review/logo/logo";
+    @import "../../../templates/page/kistyleguide/review/typography/typography";
+    @import "../../../templates/page/kistyleguide/review/mockup_images/mockupImages";
+    @import "../../../templates/page/kistyleguide/review/prompt_button/promptButton";
+    @import "../../../templates/page/kistyleguide/review/prompt_input/promptInput";
+
+}

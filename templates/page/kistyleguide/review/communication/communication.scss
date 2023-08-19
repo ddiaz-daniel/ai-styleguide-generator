@@ -1,0 +1,95 @@
+.communication-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  background-color: white;
+  color: #333;
+  padding: 24px;
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+
+    .section-title {
+      color: #333;
+    }
+    .section-note {
+      color: #666;
+      margin-top: 10px;
+      text-align: left;
+    }
+  }
+
+  .right-side {
+    padding: 24px;
+
+    .promotion-methods-title {
+      color: #333;
+    }
+
+    .sample-container {
+      padding: 32px;
+      margin: 12px 0;
+      text-align: left;
+
+      .secondary-title {
+        text-transform: capitalize;
+      }
+      .sample-text-type {
+        color: #666;
+        margin-top: 12px;
+      }
+    }
+
+    .promotion-methods-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .promotion-method {
+        background-color: #e7e7e721;
+        padding: 24px;
+      }
+    }
+  }
+}
+
+.promotion-slogans-list {
+  list-style-type: none;
+  padding: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .promotion-slogan {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+
+    .quotes-container {
+      width: 40px;
+      display: flex;
+    }
+
+    .complementary-slogan {
+      margin: 24px;
+    }
+    .start-quote {
+      align-items: flex-start;
+    }
+
+    .end-quote {
+      align-items: flex-end;
+    }
+
+    .big-quote {
+      font-size: 48px;
+
+    }
+  }
+}

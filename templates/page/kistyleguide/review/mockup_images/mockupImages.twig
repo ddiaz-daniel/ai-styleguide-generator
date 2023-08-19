@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/mockup_images/mockupImages.scss">
+
+{% if mockupImgPath != '' %}
+    <div class="review-mockup-container pdf-content">
+        <div class="title-side">
+            <h2 class="section-title">Examples</h2>
+        </div>
+        <div class="top-content-side">
+            <img src="{{ mockupImgPath != '' ? mockupImgPath : '/application/assets/images/preview_image.svg' }}" class="mockup-img">
+        </div>
+    </div>
+{% endif %}

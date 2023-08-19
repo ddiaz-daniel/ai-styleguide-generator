@@ -1,0 +1,19 @@
+.prompt-button {
+  position: absolute;
+  width: 40px;
+  right: 0;
+  top: 50%;
+  transform: translate(150%, -50%);
+  stroke: black;
+
+  &:hover {
+    cursor: pointer;
+    stroke: #37a2ff;
+  }
+
+    &.active {
+        stroke: #37a2ff;
+    }
+}
+
+

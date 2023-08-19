@@ -1,0 +1,41 @@
+.prompt-container {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 24px;
+  p {
+    margin: 0;
+  }
+}
+
+.button-container {
+  align-self: end;
+}
+.submitBtn {
+  background-color: #5ddf59;
+}
+
+textarea {
+  width: 100%;
+  min-width: 400px;
+  padding: 12px;
+  margin: 24px 0;
+  box-sizing: border-box;
+  border: 0.5px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  min-height: 48px;
+  text-align-last: left;
+  transition: min-height 0.3s;
+  overflow: hidden;
+}
+
+textarea:focus {
+  min-height: 96px; /* Increase the height when focused */
+}

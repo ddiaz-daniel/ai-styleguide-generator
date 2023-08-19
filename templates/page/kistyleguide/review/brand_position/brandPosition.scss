@@ -1,0 +1,47 @@
+.brand-positioning-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  background-color: white;
+  color: #333;
+  padding: 48px 24px;
+
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+
+    .section-title {
+      color: #333;
+    }
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .brand-value {
+    padding: 12px;
+    background-color: #e7e7e721;
+
+    .value-name {
+      color: #777;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .value-description {
+      color: #333;
+      margin-top: 48px;
+    }
+  }
+}
+
+.positioning-statements {
+  color: #666;
+  padding: 48px;
+}

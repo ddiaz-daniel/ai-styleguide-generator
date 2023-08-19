@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/color/color.scss">
+
+<div class="review-color-container pdf-content">
+    {% include "page/kistyleguide/review/prompt_button/promptButton.twig" with {section: "color"} %}
+
+    <div class="left-side">
+        <h2 class="section-title">Color Palette</h2>
+        <p class="color-note">{{ kiStyleguide.colors.note }}</p>
+    </div>
+    <div class="right-side">
+        <div class="color-palette-container">
+
+            {% for key, palette in kiStyleguide.colors %}
+
+                <div class="palette">
+                    {% if key != "note" %}
+                        {% if key == "primaryPalette" %}
+                            <h5 class="secondary-title">Primary Palette</h5>
+                        {% else %}
+                            <h5 class="secondary-title">Secondary Palette</h5>
+                        {% endif %}
+
+                        <hr class="gray-line">
+                        <div class="color-grid">
+                            <div class="column column-name">
+                                <div class="cell round-color" style="background-color: white; border:0"></div>
+                                <div class="cell cell-name">HEX</div>
+                                <div class="cell cell-name">RGB</div>
+                                <div class="cell cell-name">CMYK</div>
+                                <div class="cell cell-name">PANTONE</div>
+                            </div>
+                            {%  for color in palette %}
+                                <div class="column">
+                                    <div class="cell round-color" style="background-color: {{ color.hex }}"></div>
+                                    <div class="cell">{{ color.hex }}</div>
+                                    <div class="cell">{{ color.rgb }}</div>
+                                    <div class="cell">{{ color.cmyk }}</div>
+                                    <div class="cell">{{ color.pantone }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% include "page/kistyleguide/review/prompt_input/promptInput.twig" with {section: "color"} %}

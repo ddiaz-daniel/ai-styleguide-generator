@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="./templates/page/kistyleguide/review/brand_position/brandPosition.scss">
+
+<div class="pdf-content">
+    <h2 class="positioning-statements pdf-content" style="font-weight: normal">
+        *{{ kiStyleguide.brandPosition.statements }}*
+    </h2>
+    <div class="brand-positioning-container pdf-content">
+        {% include "page/kistyleguide/review/prompt_button/promptButton.twig" with {section: "brand positioning"} %}
+
+        <div class="values-grid">
+            {% for brandValue in kiStyleguide.brandPosition.brandValues %}
+                <div class="brand-value">
+                    <h3 class="value-name">{{ brandValue.name }}</h3>
+                    <p class="value-description">{{ brandValue.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="right-side">
+            <h2 class="section-title">Brand Positioning</h2>
+        </div>
+    </div>
+</div>
+
+{% include "page/kistyleguide/review/prompt_input/promptInput.twig" with {section: "brand positioning"} %}

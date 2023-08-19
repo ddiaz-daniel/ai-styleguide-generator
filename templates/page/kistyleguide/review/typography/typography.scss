@@ -1,0 +1,77 @@
+
+.typography-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  background-color: white;
+  color: #333;
+  padding: 24px;
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+
+    .section-title {
+      color: #333;
+    }
+
+    .typography-note {
+      color: #666;
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+
+  .left-side {
+    padding: 24px 0 24px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .typography-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+      padding: 24px;
+      align-self: start;
+
+      .family-name{
+        text-align: left;
+        padding: 12px 0;
+      }
+
+      .weights-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 24px;
+      }
+
+      .weight-title {
+        color: #969696;
+        text-align: start;
+        font-weight: normal;
+        font-size: 0.8rem;
+      }
+
+      .weight-text {
+        margin: 0;
+      }
+
+      .typography-title {
+        border-bottom: 1px solid #ccc;
+        color: #969696;
+        font-weight: normal;
+        padding-bottom: 12px;
+        text-align: left;
+      }
+
+      .typography-content {
+        text-align: left;
+      }
+    }
+  }
+}

@@ -1,0 +1,203 @@
+form {
+    label {
+        display: block;
+        margin-bottom: 20px;
+
+        span {
+            margin-bottom: 4px;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 16px;
+            background: transparent;
+            background-color: $form-bg-color;
+            border: 1px solid $form-border-color;
+            border-radius: $form-border-radius;
+            outline: 0;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            position: relative;
+            top: 5px;
+            margin-right: 4px;
+        }
+
+        select {
+            background-image: url("../../images/select_arrow.svg");
+            background-size: 17px;
+            background-repeat: no-repeat;
+            background-position: right 19px center;
+        }
+
+        textarea {
+            padding: 10px 16px;
+            min-height: 100px;
+        }
+
+        input[type="color"] {
+            height: 50px;
+            padding: 0;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        &.long {
+            width: 68%;
+            float: left;
+
+            &.mgr {
+                margin-right: 4%;
+            }
+        }
+
+        &.short {
+            width: 28%;
+            float: left;
+
+            &.mgr {
+                margin-right: 4%;
+            }
+        }
+
+        &.layout {
+            span {
+                display: block;
+            }
+
+            label {
+                display: inline-block;
+                width: 30%;
+                padding-right: 10px;
+
+                input {
+                    width: auto;
+                    margin-top: 1px;
+                }
+
+                img {
+                    width: 75%;
+                    margin-left: 7px;
+                }
+            }
+        }
+    }
+
+    .tox-tinymce {
+        font-family: $font-default;
+    }
+}
+
+button,
+.btn-primary,
+a.btn-primary {
+    background: $col-button;
+    border: none;
+    padding: 14px 35px;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    outline: 0;
+    width: auto;
+    height: fit-content;
+    margin-bottom: 4px;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background: #2f93ea;
+        outline: 0;
+        box-shadow: none;
+    }
+
+    &.green {
+        background: $col-secondary;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: #53cb4f;
+            box-shadow: none;
+        }
+    }
+
+    &.red {
+        background: none;
+        padding: 0;
+        color: red;
+        margin-top: 40px;
+        font-weight: normal;
+        font-size: 14px;
+
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: none;
+            text-decoration: underline;
+        }
+    }
+
+    &.violett {
+        background: $col-pro;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: #5108c1;
+            box-shadow: none;
+        }
+    }
+
+    &.right {
+        float: right;
+        margin-top: -102px;
+    }
+
+    &.btn-inactive {
+        background: #e6e6e6;
+        color: #b3b3b3;
+        margin-top: auto;
+
+        &.active {
+            background: $col-button;
+            color: white;
+        }
+    }
+}
+
+.btn-text {
+    margin-left: 20px;
+    line-height: 44px;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #53a3ff;
+
+    i {
+        vertical-align: middle;
+        line-height: 100%;
+        margin-right: 4px;
+        font-size: 20px;
+    }
+}
+
+.btn-wrapper-centered {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-wrapper-right {
+    width: 100%;
+    text-align: right;
+}
