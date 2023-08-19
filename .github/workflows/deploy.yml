@@ -1,13 +1,13 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
     branches:
-      - master
+      - master # Adjust to your branch name
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,18 +17,22 @@ jobs:
         with:
           php-version: 7.4
 
-      - name: Install dependencies
+      - name: Install Composer dependencies
         run: composer install
 
-      - name: Build
+      - name: Build and deploy
         run: |
-          # Adjust the build command as needed
-          php src/index.php > docs/index.html
-          cp -r src/assets docs/
+          mkdir -p docs
+          php index.php > docs/index.html
+          cp -r assets docs/
+          cp -r templates docs/
+        env:
+          COMPOSER_PROCESS_TIMEOUT: 0
+          COMPOSER_NO_INTERACTION: 1
+          COMPOSER_NO_AUDIT: 1
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.2
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: master # The branch you want to deploy from
-          FOLDER: docs   # The folder containing the built files
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
