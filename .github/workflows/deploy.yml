@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir -p docs
           php index.php > docs/index.html
-          cp -r assets docs/
+          cp -r application/assets docs/application/
           cp -r templates docs/
         env:
           COMPOSER_PROCESS_TIMEOUT: 0
