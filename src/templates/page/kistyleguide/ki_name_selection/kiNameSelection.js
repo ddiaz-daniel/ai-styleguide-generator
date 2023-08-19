@@ -56,10 +56,10 @@ function showLoadingButtonSave(e){
 }
 
 function disableAllButtons(){
-    var logosB = document.getElementById("genLogosBtn");
+    /*var logosB = document.getElementById("genLogosBtn");
     logosB.disabled = true;
     var namesB = document.getElementById("genNamesBtn");
-    namesB.disabled = true;
+    namesB.disabled = true;*/
     var saveB = document.getElementById("saveBtn");
     saveB.disabled = true;
 }

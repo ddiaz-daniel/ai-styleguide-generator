@@ -44,22 +44,29 @@ body {
         }
     }
 
-    body button {
-        background: #37a2ff;
-        border: none;
-        padding: 14px 35px;
-        color: white;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 1;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        outline: 0;
+    .footer {
+        height: 50px;
+        padding: 0 3rem;
+        margin: 1rem 0;
+    }
+
+    .logo {
+        height: 100px;
         width: auto;
-        height: fit-content;
-        margin-bottom: 4px;
+        padding: 0.5rem 3rem
+    }
+
+    .row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        flex-direction: row;
+    }
+
+    .col {
+        padding: 0 15px;
+        flex: 1 0 0;
     }
 
     @import "../../../templates/page/kistyleguide/kiStyleguide";
