@@ -1,0 +1,15 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# Set the base directory
+RewriteBase /
+
+# Rewrite rule to route requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+
+# HTID:22149972: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:22149972:
