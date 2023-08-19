@@ -4,7 +4,7 @@
 date_default_timezone_set("Europe/Vienna");
 
 // Load Composer's autoloader
-require_once("../../../../vendor/autoload.php");
+require_once("../../../vendor/autoload.php");
 
 use ScssPhp\ScssPhp\Compiler;
 
